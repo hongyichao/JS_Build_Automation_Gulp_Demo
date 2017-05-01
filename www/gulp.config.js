@@ -1,6 +1,10 @@
 ﻿module.exports = function () {
 
     var root = './';
+    var wiredep = require('wiredep');
+    var bowerFiles = wiredep({ devDependencies: true })['js'];
+    var testRpts = './testReports/';
+
 
     var config = {
 
@@ -24,6 +28,33 @@
             ignorePath: config.bower.ignorePath
         }
 
+        return options;
+
+    };
+
+
+    config.karma = getKarmaOptions();
+
+    function getKarmaOptions(){
+
+        var options = {
+            files: [].concat(
+                bowerFiles,
+                './scripts/src/*.js',
+                './tests/*.js'
+            ),
+            exclude: [],
+            coverage: {
+                dir: testRpts + 'coverage',
+                reporters: [
+                    { type: 'html', subdir: 'report-html' },
+                    { type: 'text-summary' }
+                ]
+            },
+            preprocessors: {}
+        };
+
+        options.preprocessors['**/!*.test.js'] = ['coverage'];
         return options;
 
     };

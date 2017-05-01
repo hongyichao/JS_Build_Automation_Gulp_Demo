@@ -3,8 +3,23 @@ var $ = require('gulp-load-plugins')({ lazy: true });
 var args = require('yargs').argv;
 var config = require('./gulp.config')();
 
-gulp.task('default', function () {
+gulp.task('default', ['watchJS']);
 
+gulp.task('watchJS', function () {
+    
+    gulp.watch(config.alljs, ['jshint']);
+
+});
+
+gulp.task('jshint', function () {
+
+    $.util.log($.util.colors.bgYellow('Analysing and debugging *.js codes.'));
+
+    return gulp
+        .src(config.alljs)
+        .pipe($.jshint())
+        .pipe($.jshint.reporter('jshint-stylish', { verbose: true }))
+        .pipe($.jshint.reporter('fail'));
 
 });
 
@@ -72,6 +87,21 @@ gulp.task('bump', function () {
         .pipe(gulp.dest(config.root));
 
 });
+
+
+gulp.task('test', function () {
+    var karma = require('karma').Server;
+
+    karma.start({
+
+        configFile: __dirname + '/karma.conf.js',
+        exclude: [],
+        singleRun: true
+
+    });
+
+});
+
 
 function log(msg) {
 
