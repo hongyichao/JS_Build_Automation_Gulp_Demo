@@ -1,0 +1,1 @@
+var datasource=angular.module("datasource",[]),main=angular.module("main",["datasource","student"]);main.controller("mainCtrl",["$scope",function(t){t.ngtest="Hello~ World! in main.js"}]);var student=angular.module("student",[]),studentCtrl=function(t){t.ngtest="Hello ~ World!"};studentCtrl.$inject=["$scope"],student.controller("studentCtrl",studentCtrl);

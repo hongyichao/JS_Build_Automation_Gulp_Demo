@@ -1,0 +1,25 @@
+{
+  "name": "JavaScriptAutomationDemo",
+  "authors": [
+    "hongyichao <hongyichao@hotmail.com>"
+  ],
+  "description": "",
+  "version": "0.0.1",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-mocks": "^1.6.4",
+    "jquery": "^3.2.1",
+    "angular": "^1.6.4",
+    "bootstrap": "^3.3.7"
+  }
+}
