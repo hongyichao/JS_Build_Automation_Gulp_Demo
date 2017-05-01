@@ -61,6 +61,14 @@ gulp.task('buildApp', ['wiredep'], function () {
 
 });
 
+/**
+* Bump the version
+* -- type=pre will bump the prerelease version *.*.*-X
+* -- type=patch or no flag will bump the patch version *.*.X
+* -- type=minor will bump the minor version *.X.*
+* -- type=major will bump the major version X.*.*
+* -- version=1.2.3 will bump to a specific version and ignore other flags
+*/
 gulp.task('bump', function () {
 
     var msg = 'Bumping versions';
