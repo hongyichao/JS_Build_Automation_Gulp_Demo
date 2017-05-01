@@ -23,5 +23,5 @@
                 4.3.3 "gulp bump -- type=minor" will bump the minor version *.X.*
                 4.3.4 "gulp bump -- type=major" will bump the major version X.*.*
                 4.3.5 "gulp bump -- version=1.2.3" will bump to a specific version and ignore other flags
-
+        4.4 type "gulp test" to start Karma and execute Jasmine tests
 
